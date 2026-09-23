@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account - Expense Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+
+<body class="auth-page">
+
+    <!-- NAVBAR -->
+    <nav class="auth-navbar">
+        <a href="index.html" class="auth-brand">
+            <span class="auth-brand-icon">₹</span>
+            <span>Expense Manager</span>
+        </a>
+
+        <a href="index.html" class="auth-nav-link">
+            Back to Login
+        </a>
+    </nav>
+
+
+    <!-- MAIN -->
+    <main class="auth-container">
+
+        <!-- INTRO -->
+        <section class="auth-intro">
+
+            <span class="auth-badge">
+                Create your account
+            </span>
+
+            <h1>Get started</h1>
+
+            <p>
+                Create your personal account and start managing your expenses.
+            </p>
+
+        </section>
+
+
+        <!-- REGISTER CARD -->
+        <section class="auth-card">
+
+            <div class="auth-card-header">
+
+                <h2>Create your account</h2>
+
+                <p>
+                    Enter your details below to get started.
+                </p>
+
+            </div>
+
+
+            <form id="registerForm" class="auth-form">
+
+                <!-- FULL NAME -->
+                <div class="form-group">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- USERNAME -->
+                <div class="form-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Choose a username"
+                        minlength="3"
+                        maxlength="30"
+                        required
+                    >
+
+                    <span class="input-hint">
+                        Use 3–30 characters.
+                    </span>
+
+                </div>
+
+
+                <!-- EMAIL -->
+                <div class="form-group">
+
+                    <label for="registerEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+
+                    <label for="registerPassword">
+                        Password
+                    </label>
+
+                    <div class="password-input-wrapper">
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            name="password"
+                            placeholder="Create a password"
+                            minlength="6"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="toggleRegisterPassword"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                    <span class="input-hint">
+                        Password must contain at least 6 characters.
+                    </span>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <div class="password-input-wrapper">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Re-enter your password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="toggleConfirmPassword"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TERMS -->
+                <label class="checkbox-label">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        name="terms"
+                        required
+                    >
+
+                    <span>
+                        I agree to use this service responsibly and keep my account information secure.
+                    </span>
+
+                </label>
+
+
+                <!-- MESSAGE -->
+                <div
+                    id="registerMessage"
+                    class="form-message"
+                ></div>
+
+
+                <!-- BUTTON -->
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Create Account
+                </button>
+
+            </form>
+
+
+            <!-- LOGIN LINK -->
+            <div class="auth-switch">
+
+                Already have an account?
+
+                <a href="index.html" class="text-link">
+                    Sign in
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="auth-footer">
+        <p>© 2026 Expense Manager. All rights reserved.</p>
+    </footer>
+
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

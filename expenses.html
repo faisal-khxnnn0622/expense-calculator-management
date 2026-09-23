@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Manage your income and expenses with Expense Manager."
+    >
+
+    <title>Expenses & Transactions | Expense Manager</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="assets/favicon.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <!-- =========================
+         APP LAYOUT
+    ========================== -->
+
+    <div class="app-layout">
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-header">
+
+                <a href="dashboard.html" class="sidebar-brand">
+
+                    <span class="brand-icon">
+                        ₹
+                    </span>
+
+                    <span class="brand-text">
+                        Expense Manager
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- Navigation -->
+
+            <nav class="sidebar-nav">
+
+                <p class="nav-section-title">
+                    MENU
+                </p>
+
+                <a
+                    href="dashboard.html"
+                    class="nav-link"
+                >
+
+                    <span class="nav-icon">
+                        ⌂
+                    </span>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="expenses.html"
+                    class="nav-link active"
+                >
+
+                    <span class="nav-icon">
+                        ⇄
+                    </span>
+
+                    <span>
+                        Expenses
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="expenses.html#addTransaction"
+                    class="nav-link"
+                >
+
+                    <span class="nav-icon">
+                        ＋
+                    </span>
+
+                    <span>
+                        Add Transaction
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="profile.html"
+                    class="nav-link"
+                >
+
+                    <span class="nav-icon">
+                        ◯
+                    </span>
+
+                    <span>
+                        Profile
+                    </span>
+
+                </a>
+
+            </nav>
+
+
+            <!-- Sidebar Bottom -->
+
+            <div class="sidebar-bottom">
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    id="logoutButton"
+                >
+
+                    <span class="nav-icon">
+                        ↪
+                    </span>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+            <!-- =========================
+                 TOP HEADER
+            ========================== -->
+
+            <header class="top-header">
+
+                <div class="header-left">
+
+                    <button
+                        type="button"
+                        class="mobile-menu-button"
+                        id="mobileMenuButton"
+                        aria-label="Open navigation menu"
+                    >
+                        ☰
+                    </button>
+
+                    <div>
+
+                        <p class="header-label">
+                            Expense Manager
+                        </p>
+
+                        <h1 class="page-title">
+                            Expenses & Transactions
+                        </h1>
+
+                    </div>
+
+                </div>
+
+
+                <div class="header-right">
+
+                    <div class="header-user">
+
+                        <div
+                            class="user-avatar"
+                            id="userInitial"
+                        >
+                            U
+                        </div>
+
+                        <div class="header-user-info">
+
+                            <span class="header-user-name" id="headerUserName">
+                                User
+                            </span>
+
+                            <span class="header-user-label">
+                                Personal Account
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =========================
+                 PAGE CONTENT
+            ========================== -->
+
+            <section class="page-content">
+
+
+                <!-- =========================
+                     PAGE INTRO
+                ========================== -->
+
+                <div class="page-intro">
+
+                    <div>
+
+                        <span class="section-badge">
+                            Transactions
+                        </span>
+
+                        <h2>
+                            Manage your money
+                        </h2>
+
+                        <p>
+                            Add, search and manage your income and expenses
+                            in one place.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     ADD TRANSACTION
+                ========================== -->
+
+                <section
+                    class="content-card transaction-form-card"
+                    id="addTransaction"
+                >
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="card-eyebrow">
+                                New Transaction
+                            </span>
+
+                            <h3>
+                                Add a transaction
+                            </h3>
+
+                            <p>
+                                Record your income or expense.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <form
+                        id="expenseForm"
+                        class="transaction-form"
+                    >
+
+                        <!-- Transaction Type -->
+
+                        <div class="form-group">
+
+                            <label for="transactionType">
+                                Transaction Type
+                            </label>
+
+                            <select
+                                id="transactionType"
+                                name="transactionType"
+                                required
+                            >
+
+                                <option value="">
+                                    Select type
+                                </option>
+
+                                <option value="expense">
+                                    Expense
+                                </option>
+
+                                <option value="income">
+                                    Income
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Title -->
+
+                        <div class="form-group">
+
+                            <label for="transactionTitle">
+                                Title
+                            </label>
+
+                            <input
+                                type="text"
+                                id="transactionTitle"
+                                name="transactionTitle"
+                                placeholder="e.g. Grocery shopping"
+                                maxlength="100"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Amount -->
+
+                        <div class="form-group">
+
+                            <label for="transactionAmount">
+                                Amount
+                            </label>
+
+                            <div class="input-with-symbol">
+
+                                <span>
+                                    ₹
+                                </span>
+
+                                <input
+                                    type="number"
+                                    id="transactionAmount"
+                                    name="transactionAmount"
+                                    placeholder="0.00"
+                                    min="0"
+                                    step="0.01"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Category -->
+
+                        <div class="form-group">
+
+                            <label for="transactionCategory">
+                                Category
+                            </label>
+
+                            <select
+                                id="transactionCategory"
+                                name="transactionCategory"
+                                required
+                            >
+
+                                <option value="">
+                                    Select category
+                                </option>
+
+                                <option value="food">
+                                    Food & Dining
+                                </option>
+
+                                <option value="transport">
+                                    Transport
+                                </option>
+
+                                <option value="shopping">
+                                    Shopping
+                                </option>
+
+                                <option value="bills">
+                                    Bills & Utilities
+                                </option>
+
+                                <option value="education">
+                                    Education
+                                </option>
+
+                                <option value="health">
+                                    Health
+                                </option>
+
+                                <option value="entertainment">
+                                    Entertainment
+                                </option>
+
+                                <option value="salary">
+                                    Salary
+                                </option>
+
+                                <option value="business">
+                                    Business
+                                </option>
+
+                                <option value="other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Date -->
+
+                        <div class="form-group">
+
+                            <label for="transactionDate">
+                                Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="transactionDate"
+                                name="transactionDate"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Notes -->
+
+                        <div class="form-group form-group-full">
+
+                            <label for="transactionNotes">
+                                Notes
+                                <span class="optional-text">
+                                    Optional
+                                </span>
+                            </label>
+
+                            <textarea
+                                id="transactionNotes"
+                                name="transactionNotes"
+                                rows="4"
+                                maxlength="300"
+                                placeholder="Add any additional notes..."
+                            ></textarea>
+
+                        </div>
+
+
+                        <!-- Message -->
+
+                        <div
+                            class="form-message"
+                            id="transactionMessage"
+                            role="alert"
+                            aria-live="polite"
+                        ></div>
+
+
+                        <!-- Submit -->
+
+                        <div class="form-actions">
+
+                            <button
+                                type="submit"
+                                class="primary-button"
+                            >
+
+                                <span>
+                                    ＋
+                                </span>
+
+                                Add Transaction
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+
+                <!-- =========================
+                     FILTERS
+                ========================== -->
+
+                <section class="content-card transactions-card">
+
+                    <div class="card-header transactions-header">
+
+                        <div>
+
+                            <span class="card-eyebrow">
+                                Your Records
+                            </span>
+
+                            <h3>
+                                All transactions
+                            </h3>
+
+                            <p>
+                                View and manage your recorded transactions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Filters -->
+
+                    <div class="transaction-filters">
+
+                        <!-- Search -->
+
+                        <div class="filter-group search-filter">
+
+                            <label for="transactionSearch">
+                                Search
+                            </label>
+
+                            <input
+                                type="search"
+                                id="transactionSearch"
+                                placeholder="Search transactions..."
+                            >
+
+                        </div>
+
+
+                        <!-- Category Filter -->
+
+                        <div class="filter-group">
+
+                            <label for="categoryFilter">
+                                Category
+                            </label>
+
+                            <select id="categoryFilter">
+
+                                <option value="all">
+                                    All Categories
+                                </option>
+
+                                <option value="food">
+                                    Food & Dining
+                                </option>
+
+                                <option value="transport">
+                                    Transport
+                                </option>
+
+                                <option value="shopping">
+                                    Shopping
+                                </option>
+
+                                <option value="bills">
+                                    Bills & Utilities
+                                </option>
+
+                                <option value="education">
+                                    Education
+                                </option>
+
+                                <option value="health">
+                                    Health
+                                </option>
+
+                                <option value="entertainment">
+                                    Entertainment
+                                </option>
+
+                                <option value="salary">
+                                    Salary
+                                </option>
+
+                                <option value="business">
+                                    Business
+                                </option>
+
+                                <option value="other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Type Filter -->
+
+                        <div class="filter-group">
+
+                            <label for="typeFilter">
+                                Type
+                            </label>
+
+                            <select id="typeFilter">
+
+                                <option value="all">
+                                    All Types
+                                </option>
+
+                                <option value="income">
+                                    Income
+                                </option>
+
+                                <option value="expense">
+                                    Expense
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Date Filter -->
+
+                        <div class="filter-group">
+
+                            <label for="dateFilter">
+                                Date
+                            </label>
+
+                            <select id="dateFilter">
+
+                                <option value="all">
+                                    All Time
+                                </option>
+
+                                <option value="today">
+                                    Today
+                                </option>
+
+                                <option value="week">
+                                    This Week
+                                </option>
+
+                                <option value="month">
+                                    This Month
+                                </option>
+
+                                <option value="year">
+                                    This Year
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Clear Filters -->
+
+                        <div class="filter-action">
+
+                            <button
+                                type="button"
+                                class="secondary-button"
+                                id="clearFilters"
+                            >
+                                Clear Filters
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         TRANSACTIONS TABLE
+                    ========================== -->
+
+                    <div class="table-wrapper">
+
+                        <table class="transactions-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Transaction
+                                    </th>
+
+                                    <th>
+                                        Category
+                                    </th>
+
+                                    <th>
+                                        Date
+                                    </th>
+
+                                    <th>
+                                        Type
+                                    </th>
+
+                                    <th>
+                                        Amount
+                                    </th>
+
+                                    <th>
+                                        Actions
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="transactionsTableBody">
+
+                                <!--
+                                    Transactions will be inserted
+                                    here using JavaScript.
+                                -->
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- =========================
+                         EMPTY STATE
+                    ========================== -->
+
+                    <div
+                        class="empty-state"
+                        id="transactionsEmptyState"
+                    >
+
+                        <div class="empty-state-icon">
+                            ₹
+                        </div>
+
+                        <h3>
+                            No transactions yet
+                        </h3>
+
+                        <p>
+                            Start by adding your first income or expense.
+                        </p>
+
+                        <a
+                            href="#addTransaction"
+                            class="primary-button"
+                        >
+                            ＋ Add Transaction
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================
+                     PAGE FOOTER
+                ========================== -->
+
+                <footer class="page-footer">
+
+                    <p>
+                        © 2026 Expense Manager. All rights reserved.
+                    </p>
+
+                </footer>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

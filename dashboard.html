@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Expense Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="sidebar-brand">
+                    <span class="brand-icon">₹</span>
+                    <span>Expense Manager</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <div class="nav-section-title">
+                    MAIN MENU
+                </div>
+
+                <a href="dashboard.html" class="nav-link active">
+                    <span class="nav-icon">▦</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="expenses.html" class="nav-link">
+                    <span class="nav-icon">₹</span>
+                    <span>Expenses</span>
+                </a>
+
+                <a href="expenses.html#addTransaction" class="nav-link">
+                    <span class="nav-icon">+</span>
+                    <span>Add Expense</span>
+                </a>
+
+                <div class="nav-section-title">
+                    ACCOUNT
+                </div>
+
+                <a href="profile.html" class="nav-link">
+                    <span class="nav-icon">○</span>
+                    <span>Profile</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    id="logoutButton"
+                >
+                    <span class="nav-icon">↪</span>
+                    <span>Logout</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- HEADER -->
+            <header class="top-header">
+
+                <div class="header-left">
+
+                    <button
+                        type="button"
+                        class="mobile-menu-button"
+                        id="mobileMenuButton"
+                    >
+                        ☰
+                    </button>
+
+                    <div>
+                        <span class="header-label">
+                            OVERVIEW
+                        </span>
+
+                        <h1 class="page-title">
+                            Dashboard
+                        </h1>
+                    </div>
+
+                </div>
+
+
+                <div class="header-right">
+
+                    <a
+                        href="expenses.html#addTransaction"
+                        class="primary-button header-add-button"
+                    >
+                        + Add Expense
+                    </a>
+
+                    <div class="header-user">
+
+                        <div class="user-avatar" id="userInitial">
+                            U
+                        </div>
+
+                        <div class="header-user-info">
+
+                            <span
+                                class="header-user-name"
+                                id="headerUserName"
+                            >
+                                User
+                            </span>
+
+                            <span class="header-user-label">
+                                Personal Account
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- PAGE CONTENT -->
+            <div class="page-content">
+
+
+                <!-- WELCOME -->
+                <section class="dashboard-welcome">
+
+                    <div>
+
+                        <span class="section-badge">
+                            YOUR FINANCES
+                        </span>
+
+                        <h2 id="welcomeUser">
+                            Welcome back!
+                        </h2>
+
+                        <p>
+                            Here's what's happening with your money.
+                        </p>
+
+                    </div>
+
+                    <div class="dashboard-date">
+                        <span id="currentDate"></span>
+                    </div>
+
+                </section>
+
+
+                <!-- SUMMARY CARDS -->
+                <section class="summary-grid">
+
+
+                    <!-- BALANCE -->
+                    <div class="summary-card">
+
+                        <div class="summary-icon">
+                            ₹
+                        </div>
+
+                        <div>
+
+                            <span class="summary-label">
+                                Total Balance
+                            </span>
+
+                            <strong
+                                class="summary-value"
+                                id="totalBalance"
+                            >
+                                ₹0
+                            </strong>
+
+                        </div>
+
+                    </div>
+                    
+
+                    <!-- INCOME -->
+                    <div class="summary-card">
+
+                        <div class="summary-icon income-icon">
+                            ↑
+                        </div>
+
+                        <div>
+
+                            <span class="summary-label">
+                                Total Income
+                            </span>
+
+                            <strong
+                                class="summary-value income-text"
+                                id="totalIncome"
+                            >
+                                ₹0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EXPENSE -->
+                    <div class="summary-card">
+
+                        <div class="summary-icon expense-icon">
+                            ↓
+                        </div>
+
+                        <div>
+
+                            <span class="summary-label">
+                                Total Expenses
+                            </span>
+
+                            <strong
+                                class="summary-value expense-text"
+                                id="totalExpense"
+                            >
+                                ₹0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TRANSACTIONS -->
+                    <div class="summary-card">
+
+                        <div class="summary-icon transaction-icon">
+                            ≡
+                        </div>
+
+                        <div>
+
+                            <span class="summary-label">
+                                Transactions
+                            </span>
+
+                            <strong
+                                class="summary-value"
+                                id="transactionCount"
+                            >
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- CHART + CATEGORIES -->
+                <section class="dashboard-grid">
+
+
+                    <!-- SPENDING CHART -->
+                    <div class="content-card chart-container">
+
+                        <div class="chart-header">
+
+                            <div>
+
+                                <span class="card-eyebrow">
+                                    ANALYTICS
+                                </span>
+
+                                <h3>
+                                    Spending Overview
+                                </h3>
+
+                            </div>
+
+                            <select
+                                id="chartPeriod"
+                                class="chart-select"
+                            >
+                                <option value="7">
+                                    Last 7 Days
+                                </option>
+
+                                <option value="30" selected>
+                                    Last 30 Days
+                                </option>
+
+                                <option value="90">
+                                    Last 90 Days
+                                </option>
+                            </select>
+
+                        </div>
+
+
+                        <div
+                            class="spending-chart"
+                            id="spendingChart"
+                        >
+
+                            <div class="chart-empty">
+
+                                <div class="empty-state-icon">
+                                    ₹
+                                </div>
+
+                                <p>
+                                    Your spending chart will appear here.
+                                </p>
+
+                                <span>
+                                    Add transactions to see your financial trends.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CATEGORIES -->
+                    <div class="content-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <span class="card-eyebrow">
+                                    BREAKDOWN
+                                </span>
+
+                                <h3>
+                                    Spending by Category
+                                </h3>
+
+                            </div>
+
+                            <a
+                                href="expenses.html"
+                                class="text-link"
+                            >
+                                View all
+                            </a>
+
+                        </div>
+
+
+                        <div
+                            class="category-list"
+                            id="categoryList"
+                        >
+
+                            <div class="category-empty">
+
+                                <p>
+                                    No expense data yet.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- RECENT TRANSACTIONS -->
+                <section class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="card-eyebrow">
+                                ACTIVITY
+                            </span>
+
+                            <h3>
+                                Recent Transactions
+                            </h3>
+
+                        </div>
+
+                        <a
+                            href="expenses.html"
+                            class="text-link"
+                        >
+                            View all
+                        </a>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table class="transactions-table">
+
+                            <thead>
+
+                                <tr>
+                                    <th>Transaction</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="recentTransactions">
+
+                                <tr>
+
+                                    <td colspan="5">
+
+                                        <div class="empty-state">
+
+                                            <div class="empty-state-icon">
+                                                ₹
+                                            </div>
+
+                                            <h3>
+                                                No transactions yet
+                                            </h3>
+
+                                            <p>
+                                                Start by adding your first transaction.
+                                            </p>
+
+                                            <a
+                                                href="expenses.html#addTransaction"
+                                                class="primary-button"
+                                            >
+                                                Add Transaction
+                                            </a>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- QUICK ACTIONS -->
+                <section>
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="card-eyebrow">
+                                QUICK ACTIONS
+                            </span>
+
+                            <h3>
+                                Manage your finances
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quick-actions">
+
+                        <a
+                            href="expenses.html#addTransaction"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                +
+                            </div>
+
+                            <div>
+                                <strong>Add Expense</strong>
+                                <span>Record money spent</span>
+                            </div>
+
+                        </a>
+
+
+                        <a
+                            href="expenses.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                ≡
+                            </div>
+
+                            <div>
+                                <strong>View Transactions</strong>
+                                <span>Manage all records</span>
+                            </div>
+
+                        </a>
+
+
+                        <a
+                            href="profile.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                ○
+                            </div>
+
+                            <div>
+                                <strong>My Profile</strong>
+                                <span>Manage your account</span>
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FOOTER -->
+                <footer class="page-footer">
+
+                    <p>
+                        © 2026 Expense Manager. All rights reserved.
+                    </p>
+
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

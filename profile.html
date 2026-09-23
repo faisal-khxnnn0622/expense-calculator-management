@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Manage your Expense Manager profile and account settings."
+    >
+
+    <title>Profile | Expense Manager</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="assets/favicon.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <!-- =========================
+         APP LAYOUT
+    ========================== -->
+
+    <div class="app-layout">
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-header">
+
+                <a
+                    href="dashboard.html"
+                    class="sidebar-brand"
+                >
+
+                    <span class="brand-icon">
+                        ₹
+                    </span>
+
+                    <span class="brand-text">
+                        Expense Manager
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- Navigation -->
+
+            <nav class="sidebar-nav">
+
+                <p class="nav-section-title">
+                    MENU
+                </p>
+
+
+                <a
+                    href="dashboard.html"
+                    class="nav-link"
+                >
+
+                    <span class="nav-icon">
+                        ⌂
+                    </span>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="expenses.html"
+                    class="nav-link"
+                >
+
+                    <span class="nav-icon">
+                        ⇄
+                    </span>
+
+                    <span>
+                        Expenses
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="expenses.html#addTransaction"
+                    class="nav-link"
+                >
+
+                    <span class="nav-icon">
+                        ＋
+                    </span>
+
+                    <span>
+                        Add Transaction
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="profile.html"
+                    class="nav-link active"
+                >
+
+                    <span class="nav-icon">
+                        ◯
+                    </span>
+
+                    <span>
+                        Profile
+                    </span>
+
+                </a>
+
+            </nav>
+
+
+            <!-- Sidebar Bottom -->
+
+            <div class="sidebar-bottom">
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    id="logoutButton"
+                >
+
+                    <span class="nav-icon">
+                        ↪
+                    </span>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+
+            <!-- =========================
+                 TOP HEADER
+            ========================== -->
+
+            <header class="top-header">
+
+                <div class="header-left">
+
+                    <button
+                        type="button"
+                        class="mobile-menu-button"
+                        id="mobileMenuButton"
+                        aria-label="Open navigation menu"
+                    >
+                        ☰
+                    </button>
+
+
+                    <div>
+
+                        <p class="header-label">
+                            Expense Manager
+                        </p>
+
+                        <h1 class="page-title">
+                            Profile
+                        </h1>
+
+                    </div>
+
+                </div>
+
+
+                <div class="header-right">
+
+                    <div class="header-user">
+
+                        <div
+                            class="user-avatar"
+                            id="userInitial"
+                        >
+                            U
+                        </div>
+
+
+                        <div class="header-user-info">
+
+                            <span
+                                class="header-user-name"
+                                id="headerUserName"
+                            >
+                                User
+                            </span>
+
+                            <span class="header-user-label">
+                                Personal Account
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =========================
+                 PAGE CONTENT
+            ========================== -->
+
+            <section class="page-content">
+
+
+                <!-- =========================
+                     PAGE INTRO
+                ========================== -->
+
+                <div class="page-intro">
+
+                    <div>
+
+                        <span class="section-badge">
+                            Account Settings
+                        </span>
+
+                        <h2>
+                            Your profile
+                        </h2>
+
+                        <p>
+                            Manage your personal information and
+                            account settings.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     PROFILE OVERVIEW
+                ========================== -->
+
+                <section class="profile-overview content-card">
+
+                    <div class="profile-avatar-large" id="profileAvatar">
+                        U
+                    </div>
+
+
+                    <div class="profile-overview-info">
+
+                        <h2 id="profileDisplayName">
+                            User
+                        </h2>
+
+                        <p id="profileUsername">
+                            @username
+                        </p>
+
+                        <span
+                            class="profile-email"
+                            id="profileEmail"
+                        >
+                            user@example.com
+                        </span>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================
+                     PERSONAL INFORMATION
+                ========================== -->
+
+                <section class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="card-eyebrow">
+                                Personal Information
+                            </span>
+
+                            <h3>
+                                Profile details
+                            </h3>
+
+                            <p>
+                                Update the information associated
+                                with your account.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <form
+                        id="profileForm"
+                        class="profile-form"
+                    >
+
+                        <!-- Full Name -->
+
+                        <div class="form-group">
+
+                            <label for="profileFullName">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="profileFullName"
+                                name="profileFullName"
+                                placeholder="Enter your full name"
+                                maxlength="100"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Username -->
+
+                        <div class="form-group">
+
+                            <label for="profileUsernameInput">
+                                Username
+                            </label>
+
+                            <input
+                                type="text"
+                                id="profileUsernameInput"
+                                name="profileUsername"
+                                placeholder="Enter your username"
+                                maxlength="30"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Email -->
+
+                        <div class="form-group">
+
+                            <label for="profileEmailInput">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="profileEmailInput"
+                                name="profileEmail"
+                                placeholder="Enter your email"
+                                readonly
+                            >
+
+                            <small class="input-help">
+                                Your email address is managed through
+                                your account authentication.
+                            </small>
+
+                        </div>
+
+
+                        <!-- Message -->
+
+                        <div
+                            class="form-message"
+                            id="profileMessage"
+                            role="alert"
+                            aria-live="polite"
+                        ></div>
+
+
+                        <!-- Submit -->
+
+                        <div class="form-actions">
+
+                            <button
+                                type="submit"
+                                class="primary-button"
+                            >
+
+                                <span>
+                                    ✓
+                                </span>
+
+                                Save Changes
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+
+                <!-- =========================
+                     CHANGE PASSWORD
+                ========================== -->
+
+                <section class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="card-eyebrow">
+                                Security
+                            </span>
+
+                            <h3>
+                                Change password
+                            </h3>
+
+                            <p>
+                                Update your password to keep your
+                                account secure.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <form
+                        id="passwordForm"
+                        class="profile-form"
+                    >
+
+                        <!-- Current Password -->
+
+                        <div class="form-group">
+
+                            <label for="currentPassword">
+                                Current Password
+                            </label>
+
+                            <div class="password-input-wrapper">
+
+                                <input
+                                    type="password"
+                                    id="currentPassword"
+                                    name="currentPassword"
+                                    placeholder="Enter current password"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    id="toggleCurrentPassword"
+                                    aria-label="Show current password"
+                                >
+                                    Show
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- New Password -->
+
+                        <div class="form-group">
+
+                            <label for="newPassword">
+                                New Password
+                            </label>
+
+                            <div class="password-input-wrapper">
+
+                                <input
+                                    type="password"
+                                    id="newPassword"
+                                    name="newPassword"
+                                    placeholder="Enter new password"
+                                    minlength="6"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    id="toggleNewPassword"
+                                    aria-label="Show new password"
+                                >
+                                    Show
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Confirm Password -->
+
+                        <div class="form-group">
+
+                            <label for="confirmNewPassword">
+                                Confirm New Password
+                            </label>
+
+                            <div class="password-input-wrapper">
+
+                                <input
+                                    type="password"
+                                    id="confirmNewPassword"
+                                    name="confirmNewPassword"
+                                    placeholder="Confirm new password"
+                                    minlength="6"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    id="toggleConfirmNewPassword"
+                                    aria-label="Show new password confirmation"
+                                >
+                                    Show
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Password Message -->
+
+                        <div
+                            class="form-message"
+                            id="passwordMessage"
+                            role="alert"
+                            aria-live="polite"
+                        ></div>
+
+
+                        <!-- Submit -->
+
+                        <div class="form-actions">
+
+                            <button
+                                type="submit"
+                                class="primary-button"
+                            >
+
+                                <span>
+                                    🔒
+                                </span>
+
+                                Update Password
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+
+                <!-- =========================
+                     ACCOUNT INFORMATION
+                ========================== -->
+
+                <section class="content-card account-info-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="card-eyebrow">
+                                Account
+                            </span>
+
+                            <h3>
+                                Account information
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="account-info-list">
+
+
+                        <div class="account-info-item">
+
+                            <div>
+
+                                <span class="account-info-label">
+                                    Account Status
+                                </span>
+
+                                <span
+                                    class="account-info-value"
+                                    id="accountStatus"
+                                >
+                                    Active
+                                </span>
+
+                            </div>
+
+                            <span class="status-badge">
+                                Active
+                            </span>
+
+                        </div>
+
+
+                        <div class="account-info-item">
+
+                            <div>
+
+                                <span class="account-info-label">
+                                    Account Type
+                                </span>
+
+                                <span
+                                    class="account-info-value"
+                                    id="accountType"
+                                >
+                                    Personal Account
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="account-info-item">
+
+                            <div>
+
+                                <span class="account-info-label">
+                                    Member Since
+                                </span>
+
+                                <span
+                                    class="account-info-value"
+                                    id="memberSince"
+                                >
+                                    —
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================
+                     DANGER ZONE
+                ========================== -->
+
+                <section class="content-card danger-zone">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="card-eyebrow">
+                                Account Actions
+                            </span>
+
+                            <h3>
+                                Sign out
+                            </h3>
+
+                            <p>
+                                Sign out of your Expense Manager account
+                                on this device.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="danger-button"
+                        id="profileLogoutButton"
+                    >
+
+                        <span>
+                            ↪
+                        </span>
+
+                        Logout
+
+                    </button>
+
+                </section>
+
+
+                <!-- =========================
+                     FOOTER
+                ========================== -->
+
+                <footer class="page-footer">
+
+                    <p>
+                        © 2026 Expense Manager. All rights reserved.
+                    </p>
+
+                </footer>
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
